@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 class Circle
@@ -49,14 +48,16 @@ int main(void)
     Circle first;
 
     double radius;
+    cout << "----------------------" << endl;
     cout << "Enter radius: ";
     cin >> radius;
     double pi = 3.14159;
 
-    cout << endl;
+    cout << "----------------------" << endl;
     cout << "Circle area = " << first.getArea(pi, radius) << endl;
     cout << "Circle diameter = " << first.getDiameter(radius) << endl;
     cout << "Circle circumference = " << first.getCircumference(pi, radius) << endl;
+    cout << "-------------------------------" << endl;
 
     return 0;
 }
