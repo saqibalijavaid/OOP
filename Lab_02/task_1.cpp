@@ -1,10 +1,9 @@
 #include <iostream>
-
 using namespace std;
 
 int inputDay(int num)
 {
-    puts("Enter day (1 to 31):");
+    cout << "Enter day (1 to 31): ";
 
     while (1)
     {
@@ -16,7 +15,7 @@ int inputDay(int num)
             }
             else
             {
-                printf("%s %d", "You entered: ", num);
+                // printf("%s %d", "You entered: ", num);
                 break;
             }
         }
@@ -33,7 +32,7 @@ int inputDay(int num)
 
 int inputMonth(int num)
 {
-    puts("Enter month (1 to 12):");
+    cout << "Enter month (1 to 12): ";
 
     while (1)
     {
@@ -45,7 +44,7 @@ int inputMonth(int num)
             }
             else
             {
-                printf("%s %d", "You entered: ", num);
+                // printf("%s %d", "You entered: ", num);
                 break;
             }
         }
@@ -62,7 +61,7 @@ int inputMonth(int num)
 
 int inputYear(int num)
 {
-    puts("Enter number (1 to 9):");
+    cout << "Enter year: ";
 
     while (1)
     {
@@ -74,7 +73,7 @@ int inputYear(int num)
             }
             else
             {
-                printf("%s %d", "You entered: ", num);
+                // printf("%s %d", "You entered: ", num);
                 break;
             }
         }
@@ -127,7 +126,10 @@ public:
 
     void displayDate() const
     {
+        cout << "----------------" << endl;
+        cout << "Date: ";
         cout << day << "/" << month << "/" << year << endl;
+        cout << "----------------" << endl;
     }
 };
 
@@ -139,51 +141,58 @@ int main(void)
     int month;
     int year;
 
+    cout << "-----------------------------" << endl;
+    cout << "Static Date object (only one)" << endl;
+    cout << "-----------------------------" << endl;
+
     day = inputDay(day);
-    cout << endl;
     month = inputMonth(month);
-    cout << endl;
     year = inputYear(year);
-    cout << endl;
 
     day1.setDay(day);
-    cout << endl;
     day1.setMonth(month);
-    cout << endl;
     day1.setYear(year);
-    cout << endl;
 
     day1.displayDate();
     cout << endl;
 
+    cout << "--------------------------------" << endl;
+    cout << "Dyanmically created Date objects" << endl;
+    cout << "--------------------------------" << endl;
+
     int size;
-    cout << "Enter Size: ";
+    cout << "Enter Size of Array: ";
     cin >> size;
+    cout << endl;
     Date *arr = new Date[size];
     for (int i = 0; i < size; i++)
     {
+        cout << "(" << i + 1 << "):" << endl;
         int arrDay;
         int arrMonth;
         int arrYear;
 
         arrDay = inputDay(arrDay);
-        cout << endl;
-        arrMonth = inputDay(arrMonth);
-        cout << endl;
-        arrYear = inputDay(arrYear);
-        cout << endl;
+        arrMonth = inputMonth(arrMonth);
+        arrYear = inputYear(arrYear);
 
         arr[i].setDay(arrDay);
         arr[i].setMonth(arrMonth);
         arr[i].setYear(arrYear);
+
+        cout << endl;
     }
 
     cout << endl;
-
+    cout << "----------------" << endl;
     for (int i = 0; i < size; i++)
     {
-        cout << arr[i].getDay() << "/" << arr[i].getMonth() << "/" << arr[i].getYear() << endl;
+        cout << "Date " << i + 1 << ": " << arr[i].getDay() << "/" << arr[i].getMonth() << "/" << arr[i].getYear() << endl;
     }
+    cout << "----------------" << endl;
+
+    delete[] arr;
+    // when you dynamically allocate memory for an array using 'new[]', you should deallocate that memory using 'delete[]' to free up the space
 
     return 0;
 }
