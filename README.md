@@ -1,5 +1,5 @@
-# OOP_LABS
-BS Computer Science '26
-Semester 3
-OOP LABS
+# OOP
+CS'26 - 
+Sem 3 - 
+OOP (LABS, Project) - 
 PUCIT, Lahore, Pakistan
